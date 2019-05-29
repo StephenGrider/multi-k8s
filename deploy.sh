@@ -1,16 +1,16 @@
-docker build -t stephengrider/multi-client:latest -t stephengrider/multi-client:$SHA -f ./client/Dockerfile ./client
-docker build -t stephengrider/multi-server:latest -t stephengrider/multi-server:$SHA -f ./server/Dockerfile ./server
-docker build -t stephengrider/multi-worker:latest -t stephengrider/multi-worker:$SHA -f ./worker/Dockerfile ./worker
+docker build -t trungtaba/multi-client:latest -t trungtaba/multi-client:$SHA -f ./client/Dockerfile ./client
+docker build -t trungtaba/multi-server:latest -t trungtaba/multi-server:$SHA -f ./server/Dockerfile ./server
+docker build -t trungtaba/multi-worker:latest -t trungtaba/multi-worker:$SHA -f ./worker/Dockerfile ./worker
 
-docker push stephengrider/multi-client:latest
-docker push stephengrider/multi-server:latest
-docker push stephengrider/multi-worker:latest
+docker push trungtaba/multi-client:latest
+docker push trungtaba/multi-server:latest
+docker push trungtaba/multi-worker:latest
 
-docker push stephengrider/multi-client:$SHA
-docker push stephengrider/multi-server:$SHA
-docker push stephengrider/multi-worker:$SHA
+docker push trungtaba/multi-client:$SHA
+docker push trungtaba/multi-server:$SHA
+docker push trungtaba/multi-worker:$SHA
 
 kubectl apply -f k8s
-kubectl set image deployments/server-deployment server=stephengrider/multi-server:$SHA
-kubectl set image deployments/client-deployment client=stephengrider/multi-client:$SHA
-kubectl set image deployments/worker-deployment worker=stephengrider/multi-worker:$SHA
+kubectl set image deployments/server-deployment server=trungtaba/multi-server:$SHA
+kubectl set image deployments/client-deployment client=trungtaba/multi-client:$SHA
+kubectl set image deployments/worker-deployment worker=trungtaba/multi-worker:$SHA
