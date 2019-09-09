@@ -1,20 +1,18 @@
 apiVersion: certmanager.k8s.io/v1alpha1
 kind: Certificate
 metadata:
-  name: k8s-multi-com-tls
+  name: k8s-sgerard-be-tls
 spec:
-  secretName: k8s-multi-com
+  secretName: k8s-sgerard-be
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer
-  commonName: k8s-multi.com
+  commonName: k8s.sgerard.be
   dnsNames:
-    - k8s-multi.com
-    - www.k8s-multi.com
+    - k8s.sgerard.be
   acme:
     config:
       - http01:
           ingressClass: nginx
         domains:
-          - k8s-multi.com
-          - www.k8s-multi.com
+          - k8s.sgerard.be
